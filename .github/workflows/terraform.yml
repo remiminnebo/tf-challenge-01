@@ -41,6 +41,11 @@ jobs:
         uses: azure/login@v1.1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Azure CLI Action
+        uses: Azure/cli@v1.0.0
+        with:
+          # Specify the script here
+          inlineScript: az webapp deployment source config --branch master --manual-integration --name apps-rmi-tf-challenge-01 --repo-url https://github.com/remiminnebo/azure-eats --resource-group rg-rmi-tf-challenge-01 -s apps-s-rmi-tf-challenge-01
       - name: "Terraform Apply"
         uses: hashicorp/terraform-github-actions@master
         with:

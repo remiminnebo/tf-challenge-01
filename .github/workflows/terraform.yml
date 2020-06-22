@@ -44,5 +44,4 @@ jobs:
           tf_actions_subcommand: "apply"
           tf_actions_working_dir: "./terraform"
           tf_actions_comment: true
-        env:
-          client_secret: ${{ secrets.CLIENTSECRET }}
+          args: '-var="client_secret=${{ secrets.clientSecret }}"'

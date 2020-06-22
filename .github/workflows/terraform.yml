@@ -45,3 +45,10 @@ jobs:
           tf_actions_working_dir: "./terraform"
           tf_actions_comment: true
           args: '-var="client_secret=${{ secrets.clientSecret }}"'
+          build-and-deploy:
+      - name: "Azure CLI Configure Source repo"
+        uses: azure/login@v1.1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - run: |
+        az webapp deployment source config --branch master --manual-integration --name apps-rmi-tf-challenge-01 --repo-url https://github.com/remiminnebo/azure-eats --resource-group rg-rmi-tf-challenge-01 -s apps-s-rmi-tf-challenge-01

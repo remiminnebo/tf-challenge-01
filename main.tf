@@ -49,4 +49,14 @@ resource "azurerm_app_service_slot" "slotApp1" {
   resource_group_name = azurerm_resource_group.slotApp1.name
   app_service_plan_id = azurerm_app_service_plan.slotApp1.id
   app_service_name    = azurerm_app_service.slotApp1.name
+  app_settings = {
+    "WEBSITE_NODE_DEFAULT_VERSION" = "10.15.2",
+    "ApiUrl"                       = "",
+    "ApiUrlShoppingCart"           = "",
+    "MongoConnectionString"        = "",
+    "SqlConnectionString"          = "",
+    "productImagesUrl"             = "https://raw.githubusercontent.com/microsoft/TailwindTraders-Backend/master/Deploy/tailwindtraders-images/product-detail",
+    "Personalizer__ApiKey"         = "",
+    "Personalizer__Endpoint"       = ""
+  }
 }

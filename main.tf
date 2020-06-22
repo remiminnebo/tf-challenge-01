@@ -7,12 +7,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "slotApp1" {
-    name = "rg-tf-challenge-01"
+    name = "rg-rmi-tf-challenge-01"
     location = "westeurope"
 }
 
 resource "azurerm_app_service_plan" "slotApp1" {
-    name                = "asp-tf-challenge-01"
+    name                = "asp-rmi-tf-challenge-01"
     location            = azurerm_resource_group.slotApp1.location
     resource_group_name = azurerm_resource_group.slotApp1.name
     sku {
@@ -22,7 +22,7 @@ resource "azurerm_app_service_plan" "slotApp1" {
 }
 
 resource "azurerm_app_service" "slotApp1" {
-    name                = "apps-tf-challenge-01"
+    name                = "apps-rmi-tf-challenge-01"
     location            = azurerm_resource_group.slotApp1.location
     resource_group_name = azurerm_resource_group.slotApp1.name
     app_service_plan_id = azurerm_app_service_plan.slotApp1.id
@@ -39,7 +39,7 @@ resource "azurerm_app_service" "slotApp1" {
 }
 
 resource "azurerm_app_service_slot" "slotApp1" {
-    name                = "apps-s-tf-challenge-01"
+    name                = "apps-s-rmi-tf-challenge-01"
     location            = azurerm_resource_group.slotApp1.location
     resource_group_name = azurerm_resource_group.slotApp1.name
     app_service_plan_id = azurerm_app_service_plan.slotApp1.id

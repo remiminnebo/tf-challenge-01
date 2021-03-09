@@ -1,0 +1,12 @@
+{
+  "summary": {
+    "title": "This is a dummy threat model",
+    "owner": "Remi Minnebo",
+    "description": "This describes a chat bot test"
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "reviewer": "Stijn Callebaut"
+  }
+}
